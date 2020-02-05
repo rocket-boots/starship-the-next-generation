@@ -1,8 +1,17 @@
 import PartType from './PartType.js';
 
 class PartTypeList {
-	constructor() {
+	constructor(data = {}) {
 		this.types = [];
+		this.build(data);
+	}
+
+	build(partTypeData = {}) {
+		Object.keys(partTypeData).forEach((key) => {
+			const partTypeParams = partTypeData[key];
+			const params = { ...partTypeParams, key };
+			this.add(params);
+		});
 	}
 
 	add(partTypeParams) {
@@ -17,16 +26,4 @@ class PartTypeList {
 	}
 }
 
-const partTypeList = new PartTypeList();
-
-const partTypeData = {
-	"basic-hull": { test: 123 }
-};
-
-Object.keys(partTypeData).forEach((key) => {
-	const partTypeParams = partTypeData[key];
-	const params = { ...partTypeParams, key };
-	partTypeList.add(params);
-});
-
-export default partTypeList;
+export default PartTypeList;

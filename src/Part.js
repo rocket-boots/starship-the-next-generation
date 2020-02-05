@@ -1,10 +1,11 @@
-import partTypeList from './partTypeList.js';
 
 class Part {
-	constructor(params = {}) {
+	constructor(params = {}, partTypeList) {
 		if (params.typeName) {
 			this.type = partTypeList.find(params.typeName);
 		}
+		this.x = null;
+		this.y = null;
 	}
 }
 

@@ -8,6 +8,7 @@ import StarshipGenerator from './StarshipGenerator.js';
 		e.preventDefault();
 		const ship = generator.generate();
 		console.log(ship);
+		window.ship = ship;
 	}
 
 	function setupDom() {
@@ -17,5 +18,9 @@ import StarshipGenerator from './StarshipGenerator.js';
 
 
 	document.addEventListener('DOMContentLoaded', setupDom);
+
+	if (window) {
+		window.gen = generator;
+	}
 
 })();
