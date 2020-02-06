@@ -1,14 +1,15 @@
 import Starship from './Starship.js';
 import Part from './Part.js';
 import partTypeList from './part-type-list.js';
+import PseudoRandomNumberGenerator from './PseudoRandomNumberGenerator.js';
 
 function makeNewPart(params) {
 	return new Part(params, partTypeList);
 }
 
 class StarshipGenerator {
-	constructor() {
-
+	constructor(seed = 1) {
+		this.prng = new PseudoRandomNumberGenerator(seed);
 	}
 
 	addRectangle(ship, w, h, x, y) {
@@ -25,11 +26,20 @@ class StarshipGenerator {
 		}
 	}
 
+	addCore(ship) {
+		const w = this.prng.randomInt(8) + 2;
+		const h = this.prng.randomInt(8) + 2;
+		const x = Math.floor(w / -2);
+		const y = Math.floor(h / -2);
+		this.addRectangle(ship, w, h, x, y);
+	}
+
 
 	generate() {
 		const ship = new Starship(partTypeList);
 		// TODO: add parts
-		this.addRectangle(ship, 10, 10, 0, 0);
+		this.addCore(ship);
+		// this.addRectangle(ship, 10, 10, 0, 0);
 		// const testPart = new Part({ typeName: 'basicHull' });
 		// ship.addPart(testPart);
 
