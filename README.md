@@ -1,6 +1,8 @@
 # Starship: The Next Generation
 **A procedural starship generator**
 
+Try it out: https://rocket-boots.github.io/starship-the-next-generation/
+
 ## To Do
 
 ### Phase 1 (Done!)
