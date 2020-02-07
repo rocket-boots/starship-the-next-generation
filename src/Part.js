@@ -7,6 +7,10 @@ class Part {
 		this.x = null;
 		this.y = null;
 	}
+
+	getCharacter() {
+		return this.type.character || '?';
+	}
 }
 
 export default Part;

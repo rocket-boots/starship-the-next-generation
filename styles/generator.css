@@ -1,5 +1,57 @@
+@font-face {
+	font-family: TNGTitle;
+	src: url('fonts/TNG_Title.ttf');
+}
+/* @font-face {
+	font-family: TNGCredits;
+	src: url('fonts/TNG_Credits.ttf');
+} */
+@font-face {
+	font-family: TNGMonitors;
+	src: url('fonts/TNG_Monitors.ttf');
+}
+
 body {
-	font-family: Arial;
+	font-family: TNGMonitors, Arial;
 	background: #110;
 	color: white;
+}
+
+h1 {
+	font-family: TNGTitle;
+	color: #3E8BF8;
+}
+
+.display textarea {
+	width: 28em;
+	height: 28em;
+	background: transparent;
+	color: #eee;
+	padding: 1em;
+	border: 2px solid #9A9CF1;
+}
+
+fieldset {
+	padding: 1em;
+	border: 2px solid #9A9CF1;
+	color: #9A9CF1;
+}
+
+input {
+	font-family: inherit;
+	font-size: inherit;
+	background: #000;
+	border: 1px solid #9A9CF1;
+	color: #EBC76D;
+}
+
+input.generate {
+	font-family: TNGTitle;
+	padding: 1em;
+	margin: 1em;
+	background: #EBC76D;
+	border: solid 1px #000;
+	border-radius: 0.5em;
+	color: black;
+	cursor: pointer;
 }

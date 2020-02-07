@@ -11,24 +11,32 @@
 </head>
 <body>
 	<main>
-		<section>
-
-
+		<header>
+			<h1>Starship: The Next Generation</h1>
+		</header>
+		<section class="display">
+			<textarea id="starship-textbox"></textarea>
 		</section>
 		<aside>
 			<form id="starship-generation-form">
 				<fieldset>
-					<legend>Parameters</legend>
+					<!--<legend>Parameters</legend>
 					<label></label><input type="range" />
 					<input type="checkbox" />
+					<br />-->
+					<label for="starship-seed">Seed #:</label>
+					<input type="number" id="starship-seed" />
+					<input type="checkbox" id="starship-seed-lock" />
+					<label for="starship-seed-lock">Lock</label>
 					<br />
-					<input type="submit" value="Generate" />
+					<input type="submit" value="Generate Next Starship" class="generate" />
 				</fieldset>
 
 			</form>
 		</aside>
 
 	</main>
+
 
 	<div>
 		<script src="src/Starship.js" type="module"></script>

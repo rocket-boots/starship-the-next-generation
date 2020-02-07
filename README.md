@@ -3,28 +3,48 @@
 
 ## To Do
 
-### Phase 1
+### Phase 1 (Done!)
 
 - [x] Basic Parts types: wall, floor
 - [x] Generate rectangle
 - [x] UI for button
 - [x] Pseudo-random prng
-- [ ] Generate random central rectangle as "body"
-- [ ] Generate random mirrored rectangles
-- [ ] Display in textbox
-- [ ] Generation seed
+- [x] Generate random central rectangle as "body"
+- [x] Generate random mirrored rectangles
+- [x] Display in textbox
+- [x] Generation seed
 
 ### Phase 2
 
+- [ ] Straight hallway connections
+- [ ] Diagonal hallway connections
 - [ ] Doors and door-placement algorithm
-- [ ] Engine, battery, reactor parts
-- [ ] Part categories
-- [ ] More Generation: ???
-- [ ] Square fonts
+- [x] TNG fonts for demo page
+- [ ] Square fonts for textbox
+- [ ] Better page styling
 
 ### Phase 3
 
+- [ ] Engine
+- [ ] Battery
+- [ ] Reactor parts
+- [ ] Antenna
+- [ ] Part categories
+- [ ] Ship stats
+
+### Phase 4
+
 - [ ] UI for params
+- [ ] Param-based rules
+   - [ ] Speed
+   - [ ] Resources
+   - [ ] Style/Flair
+   - [ ] Safety
+- [ ] More Generation rules
+
+### Phase 5
+
+- [ ] Output as JSON
 - [ ] Display as canvas
 - [ ] Toggle display types
 - [ ] Add star field bg
