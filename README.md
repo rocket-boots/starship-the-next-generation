@@ -3,6 +3,12 @@
 
 Try it out: https://rocket-boots.github.io/starship-the-next-generation/
 
+Use it in your project: 
+* Command line: `npm install --save github:rocket-boots/roguelike-fonts`
+* In your JavaScript:
+    * `const ship = generator.generate({ seed: 1234567 });`
+    * `const shipText = ship.getText();`
+
 ## To Do
 
 ### Phase 1 (Done!)
@@ -23,7 +29,7 @@ Try it out: https://rocket-boots.github.io/starship-the-next-generation/
 - [ ] Diagonal hallway connections
 - [ ] Doors and door-placement algorithm
 - [x] TNG fonts for demo page
-- [ ] Square fonts for textbox
+- [ ] ~~Square fonts for textbox~~ _Doesn't work_
 - [ ] Better page styling
 
 ### Phase 3
@@ -55,3 +61,8 @@ Try it out: https://rocket-boots.github.io/starship-the-next-generation/
 - [ ] Display as svg?
 - [ ] Documentation
 
+## Contributing
+
+Just submit pull requests, issues, etc.
+
+The code is free & open-source (MIT).

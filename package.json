@@ -1,0 +1,32 @@
+{
+  "name": "starship-the-next-generation",
+  "version": "0.1.2",
+  "description": "procedural starship generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rocket-boots/starship-the-next-generation.git"
+  },
+  "keywords": [
+    "procgen",
+    "space",
+    "starship",
+    "spaceship",
+    "procedural",
+    "generation",
+    "roguelike"
+  ],
+  "author": "Luke",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rocket-boots/starship-the-next-generation/issues"
+  },
+  "homepage": "https://github.com/rocket-boots/starship-the-next-generation#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "roguelike-fonts": "github:rocket-boots/roguelike-fonts"
+  }
+}

@@ -10,15 +10,27 @@
 	font-family: TNGMonitors;
 	src: url('fonts/TNG_Monitors.ttf');
 }
+/* @font-face {
+	font-family: Fix15MonoBold;
+	src: url('../node_modules/roguelike-fonts/Fix15Mono-Bold.woff');
+}
+@font-face {
+	font-family: WhiteRabbit;
+	src: url('../node_modules/roguelike-fonts/whitrabt.ttf');
+}
+@font-face {
+	font-family: AppleII;
+	src: url('../node_modules/roguelike-fonts/AppleII.ttf');
+} */
 
 body {
-	font-family: TNGMonitors, Arial;
+	font-family: 'TNGMonitors', Arial;
 	background: #001;
 	color: white;
 }
 
 h1 {
-	font-family: TNGTitle;
+	font-family: 'TNGTitle';
 	color: #3E8BF8;
 }
 
@@ -29,6 +41,7 @@ h1 {
 	color: #eee;
 	padding: 1em;
 	border: 2px solid #9A9CF1;
+	font-family: monospace;
 }
 
 fieldset {
