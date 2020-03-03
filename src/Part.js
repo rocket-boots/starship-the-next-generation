@@ -6,10 +6,15 @@ class Part {
 		}
 		this.x = null;
 		this.y = null;
+		this.character = null;
+	}
+
+	isPassable() {
+		return Boolean(this.type.passable);
 	}
 
 	getCharacter() {
-		return this.type.character || '?';
+		return this.character || this.type.character || '?';
 	}
 }
 

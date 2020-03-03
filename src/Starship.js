@@ -1,5 +1,9 @@
 import Part from './Part.js';
 
+const CARDINAL_DIRECTIONS = [{x: 1, y: 0}, {x: -1, y: 0}, {x: 0, y: 1}, {x: 0, y: -1}];
+const DIAGNOL_DIRECTIONS = [{x: 1, y: 1}, {x: -1, y: 1}, {x: -1, y: 1}, {x: -1, y: -1}];
+const ALL_DIRECTIONS = [...CARDINAL_DIRECTIONS, ...DIAGNOL_DIRECTIONS];
+
 class Starship {
 	constructor(partTypeList) {
 		this.parts = new Set();
@@ -7,7 +11,7 @@ class Starship {
 		this.logMessages = [];
 	}
 
-	addPart(part, x, y) {
+	addPart(part, x, y, options = {}) {
 		if (!(part instanceof Part)) {
 			return false;
 		}
@@ -15,11 +19,16 @@ class Starship {
 		part.y = y;
 
 		if (this.findPartAtCoordinate(x, y)) {
-			// TODO: do something if there's a potential overlap with existing part?
-		} else {
-			this.coordinateLookup[this.getCoordinateLookupKey(x, y)] = part;
-			this.parts.add(part);
+			if (!options.overwrite) {
+				// console.warn('cannot add shape at coordinate', x, y, this);
+				// TODO: do something if there's a potential overlap with existing part?
+				return false;
+			}
+			this.parts.delete(this.findPartAtCoordinate(x, y));
 		}
+		this.coordinateLookup[this.getCoordinateLookupKey(x, y)] = part;
+		this.parts.add(part);
+		return true;
 	}
 
 	getCoordinateLookupKey(x, y) {
@@ -28,6 +37,51 @@ class Starship {
 
 	findPartAtCoordinate(x, y) {
 		return this.coordinateLookup[this.getCoordinateLookupKey(x, y)];
+	}
+
+	checkConnectivity(x = 0, y = 0, requirements = {}) {
+		const consideredParts = Array.from(this.parts).filter((part) => {
+			return (!requirements.passable || (requirements.passable && part.isPassable()));
+		});
+		const connectedParts = this.floodAround(requirements, x, y);
+		const disconnectedParts = new Set(
+			consideredParts.filter((part) => !connectedParts.has(part))	
+		);
+		const isAllConnected = (disconnectedParts.size === 0 && connectedParts.size === consideredParts.length);
+		return { isAllConnected, consideredParts, connectedParts, disconnectedParts };
+	}
+
+	flood(requirements = {}, x, y, floodedParts) {
+		const part = this.findPartAtCoordinate(x, y);
+		if (!part || floodedParts.has(part)) { return; }
+		// check requirements
+		if (requirements.passable && !part.isPassable()) { return; }
+		floodedParts.add(part);
+		this.floodAround(requirements, x, y, floodedParts);
+	}
+
+	floodAround(requirements = {}, x, y, floodedPartsParam) {
+		const floodedParts = floodedPartsParam || new Set();
+		ALL_DIRECTIONS.forEach((dir) => {
+			this.flood(requirements, x + dir.x, y + dir.y, floodedParts);
+		});
+		return floodedParts;
+	}
+
+	findLeaks() {
+		const leaks = new Set();
+		this.parts.forEach((part) => {
+			if (!part.isPassable()) { return; }
+			ALL_DIRECTIONS.forEach((dir) => {
+				const x = part.x + dir.x;
+				const y = part.y + dir.y;
+				const neighbor = this.findPartAtCoordinate(x, y);
+				if (!neighbor) {
+					leaks.add({x, y});
+				}
+			});
+		});
+		return leaks;
 	}
 
 	log(m) {
@@ -52,7 +106,7 @@ class Starship {
 		return { minX, maxX, minY, maxY };
 	}
 
-	getArray() {
+	getArray() { // 2-dimensional array
 		const dims = this.getDimensions();
 		const arr = [];
 		for(let y = dims.minY; y <= dims.maxY; y++) {
@@ -68,6 +122,14 @@ class Starship {
 			arr.push(arrX);
 		}
 		return arr;
+	}
+
+	get1DArray() {
+		return Array.from(this.parts);
+	}
+
+	getTotalPartCount() {
+		return this.parts.size;
 	}
 
 	getTextArray() {

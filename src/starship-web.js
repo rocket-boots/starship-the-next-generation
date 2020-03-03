@@ -6,7 +6,11 @@ import StarshipGenerator from './StarshipGenerator.js';
 
 	function submitForm(e) {
 		e.preventDefault();
-		const seed = getSeed();
+		generate();
+	}
+
+	function generate(seedParam) {
+		const seed = seedParam || getSeed();
 		const ship = generator.generate({ seed });
 		console.log(ship);
 		window.ship = ship;
@@ -28,6 +32,7 @@ import StarshipGenerator from './StarshipGenerator.js';
 	function setupDom() {
 		const form = document.getElementById('starship-generation-form');
 		form.addEventListener('submit', submitForm);
+		generate(1);
 	}
 
 	function displayTextShip(ship) {

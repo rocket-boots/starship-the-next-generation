@@ -18,7 +18,8 @@ Try it out: https://rocket-boots.github.io/starship-the-next-generation/
 
 ### Phase 2
 
-- [ ] Straight hallway connections
+- [x] Straight hallway connections
+- [x] Some asymmetry
 - [ ] Diagonal hallway connections
 - [ ] Doors and door-placement algorithm
 - [x] TNG fonts for demo page
@@ -42,7 +43,8 @@ Try it out: https://rocket-boots.github.io/starship-the-next-generation/
    - [ ] Resources
    - [ ] Style/Flair
    - [ ] Safety
-- [ ] More Generation rules
+- [ ] More Generation rules: ?
+- [ ] Compactness
 
 ### Phase 5
 
