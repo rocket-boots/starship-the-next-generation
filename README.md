@@ -4,7 +4,7 @@
 Try it out: https://rocket-boots.github.io/starship-the-next-generation/
 
 Use it in your project: 
-* Command line: `npm install --save github:rocket-boots/roguelike-fonts`
+* Command line: `npm install --save github:rocket-boots/starship-the-next-generation`
 * In your JavaScript:
     * `const ship = generator.generate({ seed: 1234567 });`
     * `const shipText = ship.getText();`
